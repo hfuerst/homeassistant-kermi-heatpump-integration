@@ -1,0 +1,9 @@
+- sensor:
+    - name: "heatpump_aktuelle_elektrische_leistung_w"
+      state: "{{ states('sensor.heatpump_aktuelle_elektrische_leistung') | float * 100 }}"
+      unit_of_measurement: "W"
+      state_class: measurement
+      device_class: power
+- binary_sensor:
+    - name: "twe_aktiv"
+      state: "{{ states('sensor.heatpump_solltemperatur_twe') | float > 0 }}"

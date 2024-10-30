@@ -1,0 +1,5 @@
+- name: mozart13acrw60_hub
+  type: tcp
+  host: 192.168.110.15
+  port: 502
+  sensors: !include heatpump-modbus-sensors.yaml

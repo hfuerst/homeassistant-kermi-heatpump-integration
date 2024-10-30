@@ -1,0 +1,191 @@
+# device_addresses
+# 40 Waermepumpe
+# 50 Speichersystemmodul Heizen
+# 51 Speichersystemmodul TWE
+# 30 Heizkreis-/Universalmodul
+
+#############################################
+# Wärmepumpe - Energiequelle
+#############################################
+- name: heatpump_bot_aussentemperaturfuehler
+  device_address: 40
+  address: 3
+  scale: 0.1
+  device_class: temperature
+  unit_of_measurement: "°C"
+  precision: 1
+#############################################
+# Wärmepumpe - Leistung und Effizienz
+#############################################
+- name: heatpump_aktueller_cop
+  device_address: 40
+  address: 100
+  min_value: 0
+  scale: 0.1
+  device_class: power_factor
+  precision: 1
+- name: heatpump_aktueller_cop_heizen
+  device_address: 40
+  address: 101
+  min_value: 0
+  scale: 0.1
+  device_class: power_factor
+  precision: 1
+- name: heatpump_aktueller_cop_twe
+  device_address: 40
+  address: 102
+  min_value: 0
+  scale: 0.1
+  device_class: power_factor
+  precision: 1
+- name: heatpump_aktueller_cop_kuehlen
+  device_address: 40
+  address: 103
+  min_value: 0
+  scale: 0.1
+  device_class: power_factor
+  precision: 1
+- name: heatpump_aktuelle_leistung
+  unit_of_measurement: kW
+  device_address: 40
+  address: 104
+  min_value: 0
+  scale: 0.1
+  precision: 1
+  device_class: power
+- name: heatpump_aktuelle_leistung_heizen
+  unit_of_measurement: kW
+  device_address: 40
+  address: 105
+  min_value: 0
+  scale: 0.1
+  precision: 1
+  device_class: power
+- name: heatpump_aktuelle_leistung_twe
+  unit_of_measurement: kW
+  device_address: 40
+  address: 106
+  min_value: 0
+  scale: 0.1
+  precision: 1
+  device_class: power
+- name: heatpump_aktuelle_leistung_kuehlen
+  unit_of_measurement: kW
+  device_address: 40
+  address: 107
+  min_value: 0
+  scale: 0.1
+  precision: 1
+  device_class: power
+- name: heatpump_aktuelle_elektrische_leistung # value is kW * 10
+  device_address: 40
+  address: 108
+  device_class: power
+- name: heatpump_aktuelle_elektrische_leistung_heizen
+  device_address: 40
+  address: 109
+  min_value: 0
+  scale: 0.1
+  precision: 1
+  device_class: power
+- name: heatpump_aktuelle_elektrische_leistung_twe
+  device_address: 40
+  address: 110
+  min_value: 0
+  scale: 0.1
+  precision: 1
+  device_class: power
+- name: heatpump_aktuelle_elektrische_leistung_kuehlen
+  device_address: 40
+  address: 111
+  min_value: 0
+  scale: 0.1
+  precision: 1
+  device_class: power
+#############################################
+# Wärmepumpe - Status
+#############################################
+- name: heatpump_status_waermepumpe
+  device_address: 40
+  address: 200
+  min_value: 0
+  max_value: 10
+  nan_value: 0
+#############################################
+# Speichersystemmodule - Trinkwassererwärmung
+#############################################
+- name: heatpump_isttemperatur_twe
+  device_address: 51
+  address: 100
+  scale: 0.1
+  device_class: temperature
+  unit_of_measurement: "°C"
+  precision: 1
+- name: heatpump_solltemperatur_twe
+  device_address: 51
+  address: 101
+  scale: 0.1
+  device_class: temperature
+  unit_of_measurement: "°C"
+  precision: 1
+- name: heatpump_konstanter_sollwert_twe # writeable
+  device_address: 51
+  address: 102
+  scale: 0.1
+  device_class: temperature
+  unit_of_measurement: "°C"
+  precision: 1
+- name: heatpump_einmalladung_twe # writeable
+  device_address: 51
+  address: 103
+  min_value: 0
+  max_value: 4
+  nan_value: 0
+- name: heatpump_sollwert_einmalladung_twe # writeable
+  device_address: 51
+  address: 104
+  scale: 0.1
+  device_class: temperature
+  unit_of_measurement: "°C"
+  precision: 1
+#############################################
+# Speichersystemmodule - Heizkreis
+#############################################
+- name: heatpump_status_heizkreis
+  device_address: 50
+  address: 150
+  min_value: 0
+  max_value: 9
+  nan_value: 0
+- name: heatpump_betriebsmodus # 0: Aus, 1: Heizen, 2: Kühlen
+  device_address: 50
+  address: 153
+  min_value: 0
+  max_value: 2
+  nan_value: 0
+- name: heatpump_energiemodus
+  device_address: 50
+  address: 155
+  min_value: 0
+  max_value: 4
+  nan_value: 2
+- name: heatpump_parallelverschiebung_kurve # writable
+  device_address: 50
+  address: 156
+  min_value: -5
+  max_value: 5
+  nan_value: 0
+- name: heatpump_aussentemperatur
+  device_address: 50
+  address: 254
+  scale: 0.1
+  device_class: temperature
+  unit_of_measurement: "°C"
+  precision: 1
+- name: heatpump_gemittelte_aussentemperatur
+  device_address: 50
+  address: 255
+  scale: 0.1
+  device_class: temperature
+  unit_of_measurement: "°C"
+  precision: 1
