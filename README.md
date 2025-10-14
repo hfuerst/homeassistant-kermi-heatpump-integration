@@ -1,8 +1,7 @@
-# Integration of Heizbösch heatpump with Home.Assistant
+# Integration of Kermi x-center or Heizbösch heatpump with Home.Assistant
 
 __This integration requires Modbus activated on your heatpump device.__
-
-Please contact [Heizbösch](https://www.boesch.at/) support to get it activated.
+Please contact [Kermi](https://www.kermi.com/) or [Heizbösch](https://www.boesch.at/) support to get it activated.
 
 Official Information Page: [Loxone Library - Bösch MOZART/KLIMT-RW60 Heating & Cooling](https://library.loxone.com/detail/kermi-heating-cooling-1587/overview)
 
@@ -24,7 +23,7 @@ is by adding the enclosed `heatpump-modbus.yaml` to the main `configuration.yaml
 modbus: !include modbus.yaml
 ```
 
-I have a [Mozart 13 AC RW60 model](https://www.boesch.at/produkte/heizen/waermepumpe/luft/modulierende-luft-wasser-waermepumpe-mozart13ac-rw60~495484), which is 
+I have a [Kermi dynamic pro M] [Mozart 13 AC RW60 model](https://www.boesch.at/produkte/heizen/waermepumpe/luft/modulierende-luft-wasser-waermepumpe-mozart13ac-rw60~495484), which is 
 why the basic modbus name is `mozart13acrw60_hub`. You have to adapt the
 IP address, the rest should be good to go.
 
