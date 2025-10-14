@@ -20,7 +20,7 @@ Home.Assistant connects to the heatpump using [Modbus TCP](https://en.wikipedia.
 is by adding the enclosed `heatpump-modbus.yaml` to the main `configuration.yaml` via
 
 ```
-modbus: !include modbus.yaml
+modbus: !include heatpump-modbus.yaml
 ```
 
 I have a [Kermi dynamic pro M] [Mozart 13 AC RW60 model](https://www.boesch.at/produkte/heizen/waermepumpe/luft/modulierende-luft-wasser-waermepumpe-mozart13ac-rw60~495484), which is 
