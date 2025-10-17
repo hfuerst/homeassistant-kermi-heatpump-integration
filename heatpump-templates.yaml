@@ -1,9 +1,71 @@
+# Diese Datei erstellt Helfer (-Entitäten)
+# ein manuelles Erstellen entfällt somit
+# siehe: -> Einstellungen -> Geräte und Dienste -> Helfer
 - sensor:
     - name: "heatpump_aktuelle_elektrische_leistung_w"
+      unique_id: heatpump_aktuelle_elektrische_leistung_w
       state: "{{ states('sensor.heatpump_aktuelle_elektrische_leistung') | float * 100 }}"
       unit_of_measurement: "W"
       state_class: measurement
       device_class: power
 - binary_sensor:
-    - name: "twe_aktiv"
-      state: "{{ states('sensor.heatpump_solltemperatur_twe') | float > 0 }}"
+    - name: "heatpump_twe_aktiv"
+      unique_id: heatpump_twe_aktiv
+      # state: "{{ states('sensor.heatpump_solltemperatur_twe') | float > 0 }}"
+      state: "{{ states('sensor.heatpump_solltemperatur_twe') | float > states('sensor.heatpump_solltemperatur_heizspeicher') }}"
+- sensor:
+    - name: "heatpump_status_waermepumpe_text"
+      unique_id: heatpump_status_waermepumpe_text
+      state: >
+        {% set d = {
+          '0': 'Bereitschaft',
+          '1': 'Alarm',
+          '2': 'Warmwasser TWE',
+          '3': 'Kühlen',
+          '4': 'Heizen',
+          '5': 'Abtauung',
+          '6': 'Vorbereitung',
+          '7': 'Blockiert',
+          '8': 'EVU Sperre',
+          '9': 'nicht verfügbar'
+        } %}
+        {{ d.get( states('sensor.heatpump_status_waermepumpe') ) }}
+- sensor:
+    - name: "heatpump_status_heizkreis_text"
+      unique_id: heatpump_status_heizkreis_text
+      state: >
+        {% set d = {
+          '0': 'Aus',
+          '1': 'Heizen',
+          '2': 'Kühlen',
+          '3': 'Taupunkt',
+          '4': 'Pumpenwartungslauf',
+          '5': 'Frostschutz',
+          '6': 'Handbetrieb',
+          '7': 'Testmodus',
+          '8': 'Initialisierung',
+          '9': 'Sicherheitszustand'
+        } %}
+        {{ d.get( states('sensor.heatpump_status_heizkreis') ) }}
+- sensor:
+    - name: "heatpump_betriebsmodus_text"
+      unique_id: heatpump_betriebsmodus_text
+      state: >
+        {% set d = {
+          '0': 'Aus',
+          '1': 'Heizen',
+          '2': 'Kühlen',
+        } %}
+        {{ d.get( states('sensor.heatpump_betriebsmodus') ) }}
+- sensor:
+    - name: "heatpump_energiemodus_text"
+      unique_id: heatpump_energiemodus_text
+      state: >
+        {% set d = {
+          '0': 'Aus',
+          '1': 'Eco',
+          '2': 'Normal',
+          '3': 'Comfort',
+          '4': 'Benutzerdefiniert',
+        } %}
+        {{ d.get( states('sensor.heatpump_energiemodus') ) }}
